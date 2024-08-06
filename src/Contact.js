@@ -1,11 +1,29 @@
 import React,{Component} from 'react';
+import axios from 'axios';
 
 export class Contact extends Component{
-    render(){
-        return(
-            <div>
-                <h3>This is the page to list info of Contact</h3>
-            </div>
+    state = {
+        persons: []
+      }
+    
+      componentDidMount() {
+        axios.get(`https://jsonplaceholder.typicode.com/users`)
+          .then(res => {
+            const persons = res.data;
+            this.setState({ persons });
+          })
+      }
+    
+      render() {
+        return (
+          <ul>
+            {
+              this.state.persons
+                .map(person =>
+                  <li key={person.id}>{person.name}</li>
+                )
+            }
+          </ul>
         )
-    }
+      }
 }

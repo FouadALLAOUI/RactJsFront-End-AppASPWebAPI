@@ -1,7 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Home } from "./Home";
-import { Home1 } from "./Home1";
 import { Contact } from "./Contact";
 import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 
@@ -21,11 +19,6 @@ function App() {
               </NavLink>
             </li>
             <li className="nav-item- m-1">
-              <NavLink className="btn btn-light btn-outline-primary" to="/home1">
-                Home1
-              </NavLink>
-            </li>
-            <li className="nav-item- m-1">
               <NavLink
                 className="btn btn-light btn-outline-primary"
                 to="/contact"
@@ -38,7 +31,6 @@ function App() {
 
       <Switch>
         <Route path='/home' component={Home}/>
-        <Route path='/home1' component={Home1}/>
         <Route path='/contact' component={Contact}/>
       </Switch>
 

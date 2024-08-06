@@ -1,66 +1,29 @@
 import React, {Component} from "react";
-import { variables } from "./Variables";
+import axios from "axios"
 
 export class Home extends Component {
+  state = {
+    persons: []
+  }
 
-    constructor(props){
-        super(props);
-        this.state={
-            contacts : []
+  componentDidMount() {
+    axios.get(`https://jsonplaceholder.typicode.com/users`)
+      .then(res => {
+        const persons = res.data;
+        this.setState({ persons });
+      })
+  }
+
+  render() {
+    return (
+      <ul>
+        {
+          this.state.persons
+            .map(person =>
+              <li key={person.id}>{person.name}</li>
+            )
         }
-    }
-
-    refreshList(){
-        fetch(variables.API_URL+"Contacts")
-        .then(response=>response.json())
-        .then(data=>{
-            this.setState({contacts:data});
-        });
-    }
-
-    componentDidMount(){
-        this.refreshList();
-    }
-    
-
-
-
-       
-
-    render(){
-        const { contacts } = this.state;
-        console.log(contacts)
-        return(
-            
-            <div>
-            <h3>This is the Home Page to List All Contacts</h3>
-            <div>
-              <table className="table table-striped">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>FullName</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {contacts.map(contact => (
-                    <tr key={contact.id}>
-                      <td>{contact.id}</td>
-                      <td>{contact.fullName}</td>
-                      <td>{contact.email}</td>
-                      <td>{contact.phone}</td>
-                      <td>{contact.address}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-
-        );
-    }
+      </ul>
+    )
+  }
 }

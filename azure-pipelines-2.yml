@@ -26,9 +26,5 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
-- task: AzureWebApp@1
-  inputs:
-    azureSubscription: 'Azure subscription 1 (c2db819e-a9e5-486a-a182-6621e1783cf6)'
-    appType: 'webAppLinux'
-    appName: 'ReactApp-ADO'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
+

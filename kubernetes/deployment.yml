@@ -1,8 +1,7 @@
-apiVersion: app/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: react-app
-
 spec:
   replicas: 3
   selector:
@@ -33,5 +32,4 @@ spec:
       nodePort: 30000
   selector:
     app: react-ado
-
-
+    

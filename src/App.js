@@ -23,7 +23,7 @@ function App() {
                 className="btn btn-light btn-outline-primary"
                 to="/contact"
               >
-                Department
+                Contact
               </NavLink>
             </li>
           </ul>

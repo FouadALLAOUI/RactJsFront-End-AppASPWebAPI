@@ -32,4 +32,6 @@ spec:
       nodePort: 30000
   selector:
     app: react-ado
+
+
     

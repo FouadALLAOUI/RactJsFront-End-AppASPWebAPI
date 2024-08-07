@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: react-front-end
-          image: -----------------
+          image: fouadallaoui/reactappado:latest
           ports:
             - containerPort: 3000
 

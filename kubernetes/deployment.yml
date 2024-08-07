@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: react-app
+  name: webapp
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: react-ado
+      app: real-estate-for-all
   template:
     metadata:
       labels:
-        app: react-ado
+        app: real-estate-for-all
     spec:
       containers:
-        - name: react-front-end
+        - name: real-estate-for-all
           image: fouadallaoui/reactapp-docker-k8s:$(Build.BuildId)
           ports:
             - containerPort: 3000

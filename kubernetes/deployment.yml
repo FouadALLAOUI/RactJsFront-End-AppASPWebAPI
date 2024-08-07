@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: react-front-end
-          image: fouadallaoui/reactapp-docker-k8s
+          image: fouadallaoui/reactapp-docker-k8s:$(Build.BuildId)
           ports:
             - containerPort: 3000
 
